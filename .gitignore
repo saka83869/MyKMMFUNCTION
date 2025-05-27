@@ -8,3 +8,11 @@ captures
 .cxx
 local.properties
 xcuserdata
+.kotlin
+androidApp/build
+androidApp/release
+shared/build
+iosApp/Podfile.lock
+iosApp/Pods/
+Pods/
+androidApp/key20.jks

@@ -1,3 +1,10 @@
 <resources>
-    <style name="AppTheme" parent="android:Theme.Material.NoActionBar"/>
+    <style name="AppTheme" parent="android:Theme.Material.NoActionBar">
+
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/black</item>
+
+    </style>
+
 </resources>
