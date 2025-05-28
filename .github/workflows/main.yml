@@ -27,6 +27,12 @@ jobs:
       - name: Build Android App
         run: ./gradlew :androidApp:assembleDebug
 
+      - name: Upload Android APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: androidApp-apk
+          path: androidApp/build/outputs/apk/debug/*.apk
+
   build-ios:
     runs-on: macos-latest
 
@@ -58,8 +64,27 @@ jobs:
           cd iosApp
           pod install
 
-      - name: Build iOS App
+      - name: Build iOS App (Archive)
         run: |
           cd iosApp
-          xcodebuild -workspace iosApp.xcworkspace -scheme iosApp -sdk iphonesimulator -configuration Debug CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-    
+          xcodebuild -workspace iosApp.xcworkspace \
+            -scheme iosApp \
+            -sdk iphonesimulator \
+            -configuration Debug \
+            -archivePath $PWD/build/iosApp.xcarchive \
+            archive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+      
+      - name: Export IPA
+        run: |
+          cd iosApp
+          xcodebuild -exportArchive \
+            -archivePath build/iosApp.xcarchive \
+            -exportPath build/ipa-out \
+            -exportOptionsPlist ExportOptions.plist
+
+      - name: Upload IPA Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: iosApp-ipa
+          path: iosApp/build/ipa-out/*.ipa
+
