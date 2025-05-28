@@ -42,6 +42,17 @@ jobs:
         with:
           name: androidApp-apk
           path: androidApp/build/outputs/apk/debug/*.apk
+    
+      - name: Debug FIREBASE_APP_ID
+        run: |
+          if [ -z "${{ secrets.FIREBASE_APP_ID }}" ]; then
+            echo "FIREBASE_APP_ID is NOT set!"
+            exit 1
+          else
+            echo "FIREBASE_APP_ID is set and has length: ${#FIREBASE_APP_ID}"
+          fi
+        env:
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
       
       - name: Upload APK to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
@@ -50,6 +61,7 @@ jobs:
           serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
           groups: testers
           file: androidApp/build/outputs/apk/debug/androidApp-debug.apk
+
 
   build-ios:
     runs-on: macos-latest
