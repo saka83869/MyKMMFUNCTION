@@ -45,6 +45,9 @@ jobs:
       - name: Build KMM iOS Framework
         run: ./gradlew :shared:podPublishXCFramework
 
+      - name: Generate Dummy Framework for CocoaPods
+        run: ./gradlew :shared:generateDummyFramework
+
       - name: Set up Ruby & CocoaPods
         uses: ruby/setup-ruby@v1
         with:
