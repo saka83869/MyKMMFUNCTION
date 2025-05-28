@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.compose.compiler)
+    // ...existing code...
+
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -81,4 +84,7 @@ dependencies {
     // Espresso (vẫn có thể cần cho một số tương tác hoặc nếu bạn có View hỗn hợp)
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    // firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.14.0"))
+    implementation("com.google.firebase:firebase-analytics-ktx")
 }

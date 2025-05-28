@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "901938477995",
+    "project_id": "mykmmfunction",
+    "storage_bucket": "mykmmfunction.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:901938477995:android:d4901ded8e72f8f24670ee",
+        "android_client_info": {
+          "package_name": "com.abcvipapp.mykmmfunction.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATgAdjB8i8rc-aDq8jtVsCio19mmvnckE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
