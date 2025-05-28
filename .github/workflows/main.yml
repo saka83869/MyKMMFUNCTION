@@ -42,8 +42,11 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Build KMM iOS Framework
-        run: ./gradlew :shared:podPublishXCFramework
+      - name: Build KMM iOS CocoaPods
+        run: ./gradlew :shared:podspec
+      
+      - name: Build KMM iOS Shared XCFramework
+        run: ./gradlew :shared:assembleSharedXCFramework
 
       - name: Set up Ruby & CocoaPods
         uses: ruby/setup-ruby@v1
