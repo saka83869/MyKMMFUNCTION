@@ -1,4 +1,4 @@
-package com.abcvipapp.mykmmfunction.android.ui.splash
+package com.abcvipapp.mykmmfunction.android.ui.account
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -9,16 +9,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavHostController
-import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreenView(navController: NavHostController) {
+fun LoginPageView(navController: NavHostController) {
 
     LaunchedEffect(Unit) {
-        delay(1500)
-        navController.navigate("main_ui") {
-            popUpTo("splash_ui") { inclusive = true }
-        }
+
     }
 
     Box(
